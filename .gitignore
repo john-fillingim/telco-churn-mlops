@@ -1,0 +1,28 @@
+# Secrets: never commit
+.env
+*.pem
+*-key.json
+service-account*.json
+credentials*.json
+
+# Local data & experiment tracking (anchored to repo root so src/data/ is NOT ignored)
+/data/
+/mlruns/
+/mlartifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
