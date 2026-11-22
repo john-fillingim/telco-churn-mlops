@@ -1,0 +1,28 @@
+project_name: telco-churn-mlops
+seed: 42
+data:
+  gcs_bucket: telco-churn-john-fillingim   # change if the name is taken
+  gcs_blob: cleaned/telco_churn_clean.csv
+  local_path: data/telco_churn_clean.csv
+  target: Churn
+  numeric_features: [tenure, MonthlyCharges]
+  categorical_features: [Contract, InternetService, PaymentMethod, TechSupport, OnlineSecurity, PaperlessBilling]
+  fairness_column: SeniorCitizen
+split:
+  test_size: 0.2
+  val_size: 0.1
+  stratify: true
+model:
+  type: logistic_regression       # logistic_regression | random_forest
+  params:
+    logistic_regression: {C: 1.0, max_iter: 1000, class_weight: balanced}
+    random_forest: {n_estimators: 200, max_depth: 8, class_weight: balanced}
+mlflow:
+  tracking_uri: file:./mlruns
+  experiment_name: telco-churn
+output:
+  model_path: models/model.joblib
+  metadata_path: models/metadata.json
+api:
+  # churn_probability < low -> "low"; < medium -> "medium"; otherwise "high"
+  risk_thresholds: {low: 0.33, medium: 0.66}
