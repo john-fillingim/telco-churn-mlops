@@ -72,6 +72,7 @@
 │   │   └── evaluate.py         # metrics, plots, subgroup (fairness) metrics
 │   └── api/
 │       ├── main.py             # FastAPI: /health, /model-info, /predict
+│       ├── predictor.py        # load model + metadata, predict, risk level (business logic)
 │       └── schemas.py          # Pydantic request/response models
 ├── frontend/
 │   ├── app.py                  # Streamlit UI → calls deployed API
