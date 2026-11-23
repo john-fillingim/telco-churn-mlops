@@ -7,6 +7,7 @@ data:
   local_path: data/telco_churn_clean.csv
   target: Churn
   numeric_features: [tenure, MonthlyCharges]
+  numeric_bounds: {tenure: [0, 72], MonthlyCharges: [18.0, 120.0]}   # API contract ranges
   categorical_features: [Contract, InternetService, PaymentMethod, TechSupport, OnlineSecurity, PaperlessBilling]
   fairness_column: SeniorCitizen
 split:
@@ -15,6 +16,7 @@ split:
   stratify: true
 model:
   type: logistic_regression       # logistic_regression | random_forest
+  decision_threshold: 0.5         # churn_probability >= this -> "Churn"
   params:
     logistic_regression: {C: 1.0, max_iter: 1000, class_weight: balanced}
     random_forest: {n_estimators: 200, max_depth: 8, class_weight: balanced}
