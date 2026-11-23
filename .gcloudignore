@@ -1,0 +1,17 @@
+# Files NOT uploaded by `gcloud run deploy --source .` (keeps the upload small and secrets local)
+.gcloudignore
+.git
+.gitignore
+.github/
+.venv/
+venv/
+.env
+data/
+mlruns/
+mlartifacts/
+docs/
+frontend/
+tests/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
