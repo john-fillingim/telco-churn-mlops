@@ -20,6 +20,7 @@ SUPPORTED_MODEL_TYPES = ("logistic_regression", "random_forest")
 
 @dataclass(frozen=True)
 class DataConfig:
+    raw_path: str
     gcs_bucket: str
     gcs_blob: str
     local_path: str

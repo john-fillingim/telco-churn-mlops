@@ -1,6 +1,7 @@
 project_name: telco-churn-mlops
 seed: 42
 data:
+  raw_path: data/WA_Fn-UseC_-Telco-Customer-Churn.csv   # raw Kaggle download
   gcs_bucket: telco-churn-john-fillingim   # change if the name is taken
   gcs_blob: cleaned/telco_churn_clean.csv
   local_path: data/telco_churn_clean.csv
