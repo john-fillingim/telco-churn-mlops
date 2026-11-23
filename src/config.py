@@ -26,6 +26,7 @@ class DataConfig:
     local_path: str
     target: str
     numeric_features: list[str]
+    numeric_bounds: dict[str, list[float]]
     categorical_features: list[str]
     fairness_column: str
 
@@ -45,6 +46,7 @@ class SplitConfig:
 @dataclass(frozen=True)
 class ModelConfig:
     type: str
+    decision_threshold: float
     params: dict[str, dict[str, Any]]
 
     @property
