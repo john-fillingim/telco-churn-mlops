@@ -1,0 +1,78 @@
+{
+  "model_type": "logistic_regression",
+  "model_version": "0103a4b",
+  "trained_at": "2026-11-23T03:35:22+00:00",
+  "mlflow_run_id": "ea7d4c433080456f85dbf6b7a567696c",
+  "decision_threshold": 0.5,
+  "features": {
+    "tenure": {
+      "type": "int",
+      "min": 0,
+      "max": 72
+    },
+    "MonthlyCharges": {
+      "type": "float",
+      "min": 18.0,
+      "max": 120.0
+    },
+    "Contract": {
+      "type": "category",
+      "values": [
+        "Month-to-month",
+        "One year",
+        "Two year"
+      ]
+    },
+    "InternetService": {
+      "type": "category",
+      "values": [
+        "DSL",
+        "Fiber optic",
+        "No"
+      ]
+    },
+    "PaymentMethod": {
+      "type": "category",
+      "values": [
+        "Bank transfer (automatic)",
+        "Credit card (automatic)",
+        "Electronic check",
+        "Mailed check"
+      ]
+    },
+    "TechSupport": {
+      "type": "category",
+      "values": [
+        "No",
+        "No internet service",
+        "Yes"
+      ]
+    },
+    "OnlineSecurity": {
+      "type": "category",
+      "values": [
+        "No",
+        "No internet service",
+        "Yes"
+      ]
+    },
+    "PaperlessBilling": {
+      "type": "category",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    }
+  },
+  "test_metrics": {
+    "roc_auc": 0.8336383308053488,
+    "f1": 0.6080661840744571,
+    "precision": 0.4957841483979764,
+    "recall": 0.786096256684492,
+    "accuracy": 0.7306325515280739,
+    "roc_auc_senior": 0.780560661764706,
+    "recall_senior": 0.8958333333333334,
+    "roc_auc_nonsenior": 0.836369031864809,
+    "recall_nonsenior": 0.7482014388489209
+  }
+}
