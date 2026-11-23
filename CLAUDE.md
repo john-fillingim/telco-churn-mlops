@@ -77,7 +77,8 @@
 ├── frontend/
 │   ├── app.py                  # Streamlit UI → calls deployed API
 │   ├── requirements.txt        # streamlit, requests only
-│   └── README.md               # HF Spaces YAML header (sdk: streamlit)
+│   ├── Dockerfile              # HF Docker Space: runs Streamlit on port 7860
+│   └── README.md               # HF Spaces YAML header (sdk: docker, app_port: 7860)
 ├── models/                     # model.joblib + metadata.json (committed, small)
 ├── docs/                       # screenshots (MLflow UI, app), architecture
 └── tests/
@@ -161,6 +162,7 @@ gcloud run deploy telco-churn-api --source . --region us-central1 \
 Then run `scripts/test_endpoint.sh <URL>`. Put the live URL in the README.
 
 ## Front-end (Streamlit on HF Spaces)
+- Deployed as a **Docker Space** (`sdk: docker`): HF's docs no longer list `streamlit` as an `sdk` value, so the Space builds `frontend/Dockerfile`.
 - Fetch `/model-info` at startup to build the inputs (sliders for numeric features, selectboxes for categories), with a hard-coded fallback schema.
 - On submit: POST `/predict` → show a large churn-probability %, a color-coded risk badge, and a progress bar.
 - **What-if panel:** re-score the same customer with each `Contract` value and show a small bar chart (this is the "decision" part of "data to decisions").
